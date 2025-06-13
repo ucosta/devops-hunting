@@ -1,0 +1,30 @@
+Categoria,Critério,Peso,Score_1_Ruim,Score_3_Adequado,Score_5_Excelente
+Kubernetes & Container Orchestration,Administração Kubernetes,20,"Conhecimento básico, apenas containers simples",Gerencia clusters pequenos/médios,Gerencia clusters multi-tenancy complexos
+Kubernetes & Container Orchestration,Troubleshooting K8s,15,Não consegue diagnosticar problemas complexos,Resolve problemas rotineiros,Expert em troubleshooting performance/security
+Kubernetes & Container Orchestration,RBAC & Security K8s,10,Não conhece RBAC nem security policies,Implementa RBAC básico,Implementa security policies avançadas
+Kubernetes & Container Orchestration,Container Management (Docker),10,Usa Docker apenas para desenvolvimento,Containeriza aplicações complexas,Otimiza containers para produção
+Service Mesh & Networking,Istio Implementation,15,Nunca implementou Istio,Implementou Istio com tutoriais,"Expert em Istio, customizações avançadas"
+Service Mesh & Networking,Service Mesh Concepts,10,Não entende conceitos de service mesh,Entende service mesh para microserviços,Arquiteta soluções service mesh complexas
+Service Mesh & Networking,Traffic Management,5,Não sabe configurar traffic splitting,Configura routing básico,Implementa traffic policies sofisticadas
+CI/CD & GitOps,"Pipeline Design (GitLab CI, Jenkins)",15,Conhece apenas pipelines básicos,Mantém pipelines CI/CD funcionais,Arquiteta pipelines para organizações
+CI/CD & GitOps,ArgoCD & GitOps,15,Nunca usou GitOps,Usa ArgoCD para deploy automático,"Especialista GitOps, multi-environment"
+CI/CD & GitOps,Automated Testing,10,Não automatiza testes,Automatiza testes unitários/integração,Framework completo de testing automatizado
+CI/CD & GitOps,Release Management,10,Deploy manual sem versionamento,Deploy automatizado com rollback,"Advanced deployment strategies (blue/green, canary)"
+Cloud Infrastructure,Multi-Cloud Experience,10,Experiência em apenas uma cloud,Trabalha com 2-3 cloud providers,"Expert multi-cloud, hibrid environments"
+Cloud Infrastructure,Cloud-Native Services,10,"Usa apenas recursos básicos (VMs, storage)","Usa serviços managed (EKS, RDS, etc)",Arquiteta soluções cloud-native complexas
+Cloud Infrastructure,Cost Optimization,5,Não se preocupa com custos,Monitora custos básicos,"Implementa FinOps, automated cost optimization"
+Observabilidade & Monitoring,Prometheus & Grafana,15,Conhece apenas dashboards prontos,Configura alertas customizados,Expertise completa em observabilidade
+Observabilidade & Monitoring,"Logging (Loki, ELK)",10,"Logs básicos, sem agregação",Implementa logging centralizado,Implementa logging/monitoring enterprise
+Observabilidade & Monitoring,APM & Distributed Tracing,5,Não conhece APM tools,Usa ferramentas básicas de APM,Full observability stack implementation
+Infraestrutura como Código,Terraform/Ansible,15,Infraestrutura manual/imperative,Mantém IaC para recursos principais,IaC para infraestrutura enterprise complexa
+Infraestrutura como Código,Infrastructure Automation,10,Pouca automação,Automatiza provisionamento,Automação completa end-to-end
+Infraestrutura como Código,Configuration Management,5,Configuração manual,Usa configuration management tools,Advanced configuration management
+Segurança DevSecOps,Pipeline Security,10,Não implementa security scanning,Integra security scanning nos pipelines,"Security-first approach, zero-trust implementation"
+Segurança DevSecOps,Vulnerability Scanning,5,Não usa ferramentas de vulnerabilidade,Usa ferramentas de vulnerability assessment,DevSecOps pipeline completo
+Segurança DevSecOps,Compliance & Governance,5,Não conhece frameworks de compliance,Implementa policies básicas,Compliance frameworks implementation
+Soft Skills,Comunicação Técnica,10,Dificuldade para explicar conceitos técnicos,Explica conceitos para diferentes audiências,Comunica visão técnica para C-level
+Soft Skills,Trabalho em Equipe,10,Prefere trabalhar sozinho,Colabora bem em times multidisciplinares,"Mentora times, knowledge sharing"
+Soft Skills,Problem Solving,10,Espera soluções prontas,Identifica e resolve problemas proativamente,"Innovation mindset, cria soluções disruptivas"
+Experiência & Background,Anos Experiência DevOps,10,0-1 anos como DevOps,3-5 anos experiência DevOps,6+ anos experiência DevOps especializada
+Experiência & Background,Complexidade Projetos,10,Projetos pequenos/simples,Projetos médios/corporativos,Projetos enterprise/scale críticos
+Experiência & Background,Liderança Técnica,10,Nunca liderou tecnicamente,Lidera pequenos times ou iniciativas,Lidera transformação DevOps organizacional

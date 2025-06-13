@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Hunting - Plataforma de Recrutamento</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="container flex justify-between items-center">
+            <div class="flex items-center gap-16">
+                <h1 class="m-0">DevOps Hunting</h1>
+                <div class="status status--success">Plataforma Ativa</div>
+            </div>
+            <div class="flex items-center gap-8">
+                <span>12 de Junho, 2025</span>
+                <button class="btn btn--outline btn--sm">
+                    <i class="fas fa-cog"></i> Configurações
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="app-nav">
+        <div class="container">
+            <ul class="nav-tabs">
+                <li class="nav-tab active" data-tab="dashboard">
+                    <i class="fas fa-chart-line"></i> Dashboard
+                </li>
+                <li class="nav-tab" data-tab="search">
+                    <i class="fas fa-search"></i> Busca & Scraping
+                </li>
+                <li class="nav-tab" data-tab="candidates">
+                    <i class="fas fa-users"></i> Candidatos
+                </li>
+                <li class="nav-tab" data-tab="analysis">
+                    <i class="fas fa-chart-bar"></i> Análise de Aderência
+                </li>
+                <li class="nav-tab" data-tab="automation">
+                    <i class="fas fa-robot"></i> Automação
+                </li>
+                <li class="nav-tab" data-tab="communication">
+                    <i class="fas fa-comment-alt"></i> Comunicação
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="app-content">
+        <!-- Dashboard Tab -->
+        <section id="dashboard" class="tab-content active">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Dashboard</h2>
+                    <div class="flex gap-8">
+                        <button class="btn btn--secondary btn--sm">
+                            <i class="fas fa-download"></i> Exportar
+                        </button>
+                        <button class="btn btn--primary btn--sm">
+                            <i class="fas fa-sync"></i> Atualizar Dados
+                        </button>
+                    </div>
+                </div>
+
+                <div class="stats-overview">
+                    <div class="stat-card">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Candidatos no Pipeline</div>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i> 2 novos hoje
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Alta Aderência</div>
+                        <div class="stat-trend neutral">
+                            <i class="fas fa-minus"></i> Sem alterações
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">60%</div>
+                        <div class="stat-label">Taxa de Resposta</div>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i> +5% esta semana
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">1</div>
+                        <div class="stat-label">Entrevistas Agendadas</div>
+                        <div class="stat-trend negative">
+                            <i class="fas fa-arrow-down"></i> -2 esta semana
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-charts">
+                    <div class="chart-container">
+                        <h3>Aderência por Tecnologia</h3>
+                        <canvas id="skillsChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Status dos Candidatos</h3>
+                        <canvas id="statusChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="recent-activity">
+                    <h3>Atividade Recente</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon"><i class="fas fa-user-plus"></i></div>
+                            <div class="activity-details">
+                                <div class="activity-title">Novo candidato adicionado</div>
+                                <div class="activity-description">João Silva Santos foi adicionado ao pipeline</div>
+                                <div class="activity-time">Hoje, 10:45</div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon"><i class="fas fa-calendar-check"></i></div>
+                            <div class="activity-details">
+                                <div class="activity-title">Entrevista agendada</div>
+                                <div class="activity-description">Carlos Roberto Lima - Sexta-feira, 14:00</div>
+                                <div class="activity-time">Hoje, 09:30</div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon"><i class="fas fa-robot"></i></div>
+                            <div class="activity-details">
+                                <div class="activity-title">Automação concluída</div>
+                                <div class="activity-description">LinkedIn Daily Search - 23 resultados</div>
+                                <div class="activity-time">Hoje, 08:45</div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="activity-details">
+                                <div class="activity-title">Mensagem enviada</div>
+                                <div class="activity-description">Mensagem inicial para Maria Oliveira Costa</div>
+                                <div class="activity-time">Ontem, 16:20</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search & Scraping Tab -->
+        <section id="search" class="tab-content">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Busca & Scraping</h2>
+                    <button class="btn btn--primary btn--sm">
+                        <i class="fas fa-plus"></i> Nova Busca
+                    </button>
+                </div>
+
+                <div class="search-config-area">
+                    <div class="search-form card">
+                        <div class="card__header">
+                            <h3>Configurar Nova Busca</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="form-group">
+                                <label for="search-name" class="form-label">Nome da Busca</label>
+                                <input type="text" id="search-name" class="form-control" placeholder="Ex: DevOps Especialistas em Kubernetes">
+                            </div>
+                            <div class="form-group">
+                                <label for="search-platform" class="form-label">Plataforma</label>
+                                <select id="search-platform" class="form-control">
+                                    <option value="linkedin">LinkedIn</option>
+                                    <option value="sales-navigator">Sales Navigator</option>
+                                    <option value="texau">TexAu</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="search-query" class="form-label">String de Busca</label>
+                                <textarea id="search-query" class="form-control" rows="3" placeholder='Ex: "Kubernetes" AND ("DevOps" OR "SRE") Brazil -Junior'></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="search-automation" class="form-label">Ferramenta de Automação</label>
+                                <select id="search-automation" class="form-control">
+                                    <option value="phantombuster">PhantomBuster</option>
+                                    <option value="texau">TexAu</option>
+                                    <option value="manual">Manual</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="search-frequency" class="form-label">Frequência</label>
+                                <select id="search-frequency" class="form-control">
+                                    <option value="once">Uma vez</option>
+                                    <option value="daily">Diariamente</option>
+                                    <option value="weekly">Semanalmente</option>
+                                    <option value="continuous">Contínuo</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn btn--secondary">Cancelar</button>
+                                <button class="btn btn--primary">Salvar e Executar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search-presets card">
+                        <div class="card__header">
+                            <h3>Buscas Pré-definidas</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="preset-list" id="preset-queries">
+                                <!-- Presets will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-searches card">
+                    <div class="card__header">
+                        <h3>Buscas Recentes</h3>
+                    </div>
+                    <div class="card__body">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Plataforma</th>
+                                    <th>Data da Execução</th>
+                                    <th>Resultados</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>DevOps Básico</td>
+                                    <td>LinkedIn</td>
+                                    <td>12/06/2025 09:30</td>
+                                    <td>15 perfis</td>
+                                    <td><span class="status status--success">Concluído</span></td>
+                                    <td>
+                                        <button class="btn btn--sm btn--secondary">Ver</button>
+                                        <button class="btn btn--sm btn--outline">Repetir</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Kubernetes Specialists</td>
+                                    <td>LinkedIn</td>
+                                    <td>11/06/2025 14:45</td>
+                                    <td>8 perfis</td>
+                                    <td><span class="status status--success">Concluído</span></td>
+                                    <td>
+                                        <button class="btn btn--sm btn--secondary">Ver</button>
+                                        <button class="btn btn--sm btn--outline">Repetir</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Istio Experts</td>
+                                    <td>Sales Navigator</td>
+                                    <td>10/06/2025 11:20</td>
+                                    <td>4 perfis</td>
+                                    <td><span class="status status--success">Concluído</span></td>
+                                    <td>
+                                        <button class="btn btn--sm btn--secondary">Ver</button>
+                                        <button class="btn btn--sm btn--outline">Repetir</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Candidates Tab -->
+        <section id="candidates" class="tab-content">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Candidatos</h2>
+                    <button class="btn btn--primary btn--sm">
+                        <i class="fas fa-plus"></i> Adicionar Candidato
+                    </button>
+                </div>
+
+                <div class="candidates-filters card">
+                    <div class="card__body">
+                        <div class="flex justify-between items-center">
+                            <div class="search-bar">
+                                <input type="text" class="form-control" placeholder="Buscar candidatos...">
+                            </div>
+                            <div class="filter-options flex gap-8">
+                                <select class="form-control">
+                                    <option>Todos os status</option>
+                                    <option>Para Contatar</option>
+                                    <option>Aguardando Resposta</option>
+                                    <option>Entrevista Agendada</option>
+                                    <option>Em Avaliação</option>
+                                    <option>Não Respondeu</option>
+                                </select>
+                                <select class="form-control">
+                                    <option>Todas as prioridades</option>
+                                    <option>Muito Alta</option>
+                                    <option>Alta</option>
+                                    <option>Média</option>
+                                    <option>Baixa</option>
+                                </select>
+                                <select class="form-control">
+                                    <option>Todos os níveis</option>
+                                    <option>Pleno</option>
+                                    <option>Pleno/Senior</option>
+                                    <option>Senior</option>
+                                </select>
+                                <button class="btn btn--secondary btn--sm">
+                                    <i class="fas fa-filter"></i> Mais Filtros
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="candidates-list" id="candidates-container">
+                    <!-- Candidates will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Analysis Tab -->
+        <section id="analysis" class="tab-content">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Análise de Aderência</h2>
+                    <div class="flex gap-8">
+                        <button class="btn btn--secondary btn--sm">
+                            <i class="fas fa-history"></i> Histórico
+                        </button>
+                        <button class="btn btn--primary btn--sm">
+                            <i class="fas fa-file-export"></i> Exportar Relatório
+                        </button>
+                    </div>
+                </div>
+
+                <div class="analysis-grid">
+                    <div class="card analysis-form">
+                        <div class="card__header">
+                            <h3>Nova Análise</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="form-group">
+                                <label for="analysis-candidate" class="form-label">Selecionar Candidato</label>
+                                <select id="analysis-candidate" class="form-control">
+                                    <option value="">Escolha um candidato...</option>
+                                    <!-- Options will be loaded from JS -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="analysis-method" class="form-label">Método de Análise</label>
+                                <select id="analysis-method" class="form-control">
+                                    <option value="manual">Manual</option>
+                                    <option value="ai">IA Assistida</option>
+                                    <option value="auto">Automática</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="analysis-focus" class="form-label">Foco da Análise</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" checked> Habilidades Técnicas
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" checked> Experiência
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" checked> Certificações
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox"> Soft Skills
+                                    </label>
+                                </div>
+                            </div>
+                            <button id="run-analysis" class="btn btn--primary">Executar Análise</button>
+                        </div>
+                    </div>
+
+                    <div class="card analysis-result">
+                        <div class="card__header">
+                            <h3>Resultado da Análise</h3>
+                            <div class="analysis-candidate-info hidden" id="analysis-info">
+                                <div class="candidate-name">Nome do Candidato</div>
+                                <div class="candidate-job">Cargo na Empresa</div>
+                            </div>
+                        </div>
+                        <div class="card__body">
+                            <div class="empty-state" id="empty-analysis">
+                                <i class="fas fa-chart-pie fa-3x"></i>
+                                <p>Selecione um candidato e execute uma análise para ver os resultados aqui.</p>
+                            </div>
+                            <div class="analysis-content hidden" id="analysis-content">
+                                <div class="analysis-summary">
+                                    <h4>Resumo da Aderência</h4>
+                                    <div class="overall-score">
+                                        <div class="score-value">0.0</div>
+                                        <div class="score-label">Score Geral</div>
+                                    </div>
+                                    <div class="score-breakdown">
+                                        <div class="score-item">
+                                            <span>Nível de Aderência:</span>
+                                            <span class="score-high">Alta</span>
+                                        </div>
+                                        <div class="score-item">
+                                            <span>Lacunas Críticas:</span>
+                                            <span>1</span>
+                                        </div>
+                                        <div class="score-item">
+                                            <span>Pontos Fortes:</span>
+                                            <span>4</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="skills-comparison">
+                                    <h4>Comparação de Habilidades</h4>
+                                    <div class="skills-chart-container">
+                                        <canvas id="candidateSkillsChart"></canvas>
+                                    </div>
+                                </div>
+
+                                <div class="analysis-details">
+                                    <h4>Detalhes da Análise</h4>
+                                    <div class="details-tabs">
+                                        <div class="details-tab active" data-details-tab="strengths">Fortalezas</div>
+                                        <div class="details-tab" data-details-tab="gaps">Lacunas</div>
+                                        <div class="details-tab" data-details-tab="recommendations">Recomendações</div>
+                                    </div>
+                                    <div class="details-content active" id="details-strengths">
+                                        <ul class="details-list" id="strengths-list">
+                                            <!-- Will be populated by JS -->
+                                        </ul>
+                                    </div>
+                                    <div class="details-content" id="details-gaps">
+                                        <ul class="details-list" id="gaps-list">
+                                            <!-- Will be populated by JS -->
+                                        </ul>
+                                    </div>
+                                    <div class="details-content" id="details-recommendations">
+                                        <div class="recommendation-item">
+                                            <div class="recommendation-title">Avanço no Processo</div>
+                                            <div class="recommendation-content">
+                                                Este candidato tem um perfil forte e recomendamos avançar para uma entrevista técnica.
+                                            </div>
+                                        </div>
+                                        <div class="recommendation-item">
+                                            <div class="recommendation-title">Abordagem na Entrevista</div>
+                                            <div class="recommendation-content">
+                                                Explore a experiência prática com Istio e a implementação de segurança em pipelines.
+                                            </div>
+                                        </div>
+                                        <div class="recommendation-item">
+                                            <div class="recommendation-title">Mensagem Personalizada</div>
+                                            <div class="recommendation-content">
+                                                Mencione os projetos de Kubernetes e destaque a oportunidade de trabalhar com ArgoCD.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Automation Tab -->
+        <section id="automation" class="tab-content">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Automação</h2>
+                    <button class="btn btn--primary btn--sm">
+                        <i class="fas fa-plus"></i> Nova Automação
+                    </button>
+                </div>
+
+                <div class="automation-grid">
+                    <div class="automation-status card">
+                        <div class="card__header">
+                            <h3>Status das Automações</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="automation-list" id="automation-list">
+                                <!-- Will be loaded by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="automation-config card">
+                        <div class="card__header">
+                            <h3>Configurações de Integração</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="integration-item">
+                                <div class="integration-header">
+                                    <div class="integration-name">
+                                        <i class="fas fa-robot"></i> PhantomBuster
+                                    </div>
+                                    <div class="integration-status status status--success">Conectado</div>
+                                </div>
+                                <div class="integration-details">
+                                    <div class="form-group">
+                                        <label class="form-label">API Key</label>
+                                        <div class="api-key-field">
+                                            <input type="password" class="form-control" value="*******************">
+                                            <button class="btn btn--secondary btn--sm">Mostrar</button>
+                                        </div>
+                                    </div>
+                                    <div class="integration-actions">
+                                        <button class="btn btn--outline btn--sm">Testar Conexão</button>
+                                        <button class="btn btn--secondary btn--sm">Atualizar</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="integration-item">
+                                <div class="integration-header">
+                                    <div class="integration-name">
+                                        <i class="fas fa-robot"></i> TexAu
+                                    </div>
+                                    <div class="integration-status status status--success">Conectado</div>
+                                </div>
+                                <div class="integration-details">
+                                    <div class="form-group">
+                                        <label class="form-label">API Key</label>
+                                        <div class="api-key-field">
+                                            <input type="password" class="form-control" value="*******************">
+                                            <button class="btn btn--secondary btn--sm">Mostrar</button>
+                                        </div>
+                                    </div>
+                                    <div class="integration-actions">
+                                        <button class="btn btn--outline btn--sm">Testar Conexão</button>
+                                        <button class="btn btn--secondary btn--sm">Atualizar</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="integration-item">
+                                <div class="integration-header">
+                                    <div class="integration-name">
+                                        <i class="fas fa-robot"></i> ChatGPT API
+                                    </div>
+                                    <div class="integration-status status status--success">Conectado</div>
+                                </div>
+                                <div class="integration-details">
+                                    <div class="form-group">
+                                        <label class="form-label">API Key</label>
+                                        <div class="api-key-field">
+                                            <input type="password" class="form-control" value="*******************">
+                                            <button class="btn btn--secondary btn--sm">Mostrar</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Modelo</label>
+                                        <select class="form-control">
+                                            <option>gpt-4</option>
+                                            <option>gpt-3.5-turbo</option>
+                                        </select>
+                                    </div>
+                                    <div class="integration-actions">
+                                        <button class="btn btn--outline btn--sm">Testar Conexão</button>
+                                        <button class="btn btn--secondary btn--sm">Atualizar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="automation-docs card">
+                        <div class="card__header">
+                            <h3>Documentação</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="doc-links">
+                                <a href="#" class="doc-link">
+                                    <i class="fas fa-file-alt"></i> Guia de Automação de Hunting
+                                </a>
+                                <a href="#" class="doc-link">
+                                    <i class="fas fa-file-alt"></i> Prompts para Análise de Aderência
+                                </a>
+                                <a href="#" class="doc-link">
+                                    <i class="fas fa-file-alt"></i> Template CSV para Tracking
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Communication Tab -->
+        <section id="communication" class="tab-content">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Comunicação</h2>
+                    <button class="btn btn--primary btn--sm">
+                        <i class="fas fa-plus"></i> Novo Template
+                    </button>
+                </div>
+
+                <div class="communication-grid">
+                    <div class="message-templates card">
+                        <div class="card__header">
+                            <h3>Templates de Mensagem</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="template-list" id="template-list">
+                                <!-- Will be loaded by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="message-composer card">
+                        <div class="card__header">
+                            <h3>Composição de Mensagem</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="form-group">
+                                <label class="form-label">Candidato</label>
+                                <select class="form-control" id="message-candidate">
+                                    <option value="">Selecione um candidato...</option>
+                                    <!-- Will be loaded by JS -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Template</label>
+                                <select class="form-control" id="message-template">
+                                    <option value="">Selecione um template...</option>
+                                    <option value="initial">Initial Contact - High Match</option>
+                                    <option value="followup">Follow-up - No Response</option>
+                                    <option value="technical">Technical Interest</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Mensagem</label>
+                                <textarea class="form-control" rows="6" id="message-content" placeholder="Sua mensagem personalizada..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Personalização</label>
+                                <div class="personalization-chips">
+                                    <span class="personalization-chip" data-variable="{nome}">Nome</span>
+                                    <span class="personalization-chip" data-variable="{tecnologia_principal}">Tecnologia Principal</span>
+                                    <span class="personalization-chip" data-variable="{empresa}">Empresa Atual</span>
+                                    <span class="personalization-chip" data-variable="{cargo}">Cargo</span>
+                                </div>
+                            </div>
+                            <div class="message-actions">
+                                <button class="btn btn--secondary">Salvar como Template</button>
+                                <button class="btn btn--primary">Enviar Mensagem</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="message-history card">
+                        <div class="card__header">
+                            <h3>Histórico de Comunicação</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="history-filters flex gap-8 mb-8">
+                                <select class="form-control">
+                                    <option>Todos os candidatos</option>
+                                </select>
+                                <select class="form-control">
+                                    <option>Todos os status</option>
+                                    <option>Enviado</option>
+                                    <option>Respondido</option>
+                                    <option>Sem resposta</option>
+                                </select>
+                            </div>
+                            <div class="communication-timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">12/06/2025</div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-header">
+                                            <span class="timeline-title">Mensagem inicial para Maria Oliveira Costa</span>
+                                            <span class="timeline-status status status--info">Enviado</span>
+                                        </div>
+                                        <div class="timeline-body">
+                                            Olá Maria, vi seu perfil e fiquei impressionado com sua experiência em Istio. Estamos buscando um DevOps Engineer com exatamente seu perfil. Gostaria de conversar?
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">10/06/2025</div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-header">
+                                            <span class="timeline-title">Resposta de Carlos Roberto Lima</span>
+                                            <span class="timeline-status status status--success">Respondido</span>
+                                        </div>
+                                        <div class="timeline-body">
+                                            Olá, obrigado pelo contato! Tenho interesse em saber mais sobre a oportunidade. Podemos marcar uma conversa?
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">10/06/2025</div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-header">
+                                            <span class="timeline-title">Mensagem inicial para Carlos Roberto Lima</span>
+                                            <span class="timeline-status status status--info">Enviado</span>
+                                        </div>
+                                        <div class="timeline-body">
+                                            Olá Carlos, vi seu perfil e fiquei impressionado com sua experiência em ArgoCD. Estamos buscando um DevOps Engineer com exatamente seu perfil. Gostaria de conversar?
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
