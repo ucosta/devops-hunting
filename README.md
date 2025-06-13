@@ -89,7 +89,7 @@ Contributions are welcome! Please open issues or submit pull requests for improv
 ---
 
 **Questions or feedback?**
-Open an issue or contact [your-email@example.com](mailto:your-email@example.com).
+Open an issue or contact [ucosta@gmail.com](mailto:ucosta@gmail.com).
 
 ---
 
